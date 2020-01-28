@@ -1,5 +1,9 @@
 const express = require('express');
+const mongo = require('mongodb');
+
 const app = express();
+const router = express.Router();
+const MongoClient = mongo.MongoClient;
 
 const port = 3000;
 
