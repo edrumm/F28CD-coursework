@@ -18,5 +18,8 @@
 </head>
 <body>
     <h1>Title</h1>
+    <?php
+        echo "<p>Testing</p>"
+    ?>
 </body>
 </html>

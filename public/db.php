@@ -1,4 +1,7 @@
 <?php
-    $db = "";
+    include "../credentials.php";
     // ...
 ?>
+<html>
+
+</html>
