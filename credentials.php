@@ -1,4 +1,0 @@
-<?php
-    $username = "";
-    $pass = "";
-?>
