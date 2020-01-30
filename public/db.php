@@ -1,5 +1,5 @@
 <?php
-    include "../credentials.php";
+    include "../dbcredentials.php";
     // ...
 ?>
 <html>
