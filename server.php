@@ -4,11 +4,18 @@
 	}
 	
 	function validate($input) {
-		// TODO
+		if (strlen($input) > 20) {
+		    return false;
+        }
+
+		$illegal_text = array(';', ':', '*', '&', '#', '(', ')', '=', '"', '--');
+
+		foreach ($illegal_text as $character) {
+		    if (strpos($input, $character) !== false) {
+		        return false;
+            }
+        }
+
+		return true;
 	}
-	
-	function logout() {
-		session_destroy();
-		header("Location: index.php");
-	}	
 ?>

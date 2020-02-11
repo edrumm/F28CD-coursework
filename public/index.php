@@ -1,5 +1,5 @@
 <?php
-	session_start();
+	include_once "../server.php";
 ?>
 
 <html lang="en">
