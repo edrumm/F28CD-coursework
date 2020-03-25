@@ -3,6 +3,27 @@
     font-size: 1em;
 }
 
-h1 {
-    font-size: 2em;
+html, body {
+    overflow-x: hidden;
+    padding: 0;
+    margin: 0;
+}
+
+nav {
+    width: 100vw;
+    position: fixed;
+    background-color: #202020;
+}
+
+nav ul {
+    width: 100%;
+    list-style-type: none;
+    display: flex;
+    flex-direction: row;
+}
+
+nav ul li {
+    color: #FFFFFF;
+    font-weight: bold;
+    padding: 0 1%;
 }

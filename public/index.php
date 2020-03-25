@@ -14,12 +14,20 @@
     <!--JS-->
     <script type="text/javascript" src="js/master.js"></script>
     <script type="text/javascript" src="js/carousel.js"></script>
-    <title>Skills Exchange</title>
+    <title>F28CD Skills Exchange</title>
 </head>
 <body>
-    <h1>Title</h1>
-    <?php
-        echo "<p>Testing!</p>"
-    ?>
+    <nav>
+        <ul>
+            <li>Home</li>
+            <li>Alt</li>
+        </ul>
+    </nav>
+    <div class="carousel">
+
+    </div>
+    <footer>
+        <p>Footer text</p>
+    </footer>
 </body>
 </html>

@@ -24,10 +24,19 @@
     $usernameInput = $_POST["username"];
     $passInput = $_POST["pass"];
 
-    $sql = "SELECT * FROM User WHERE username = '$usernameInput';";
+    $sql = "SELECT * FROM User WHERE username = ? ;";
+
+    /*  USE PREPARED:
+        $query = $connection->prepare($sql);
+        $query->bind_param("ss", $usernameInput, $passInput);
+        // set values
+        $query->execute();
+        $query->close();
+    */
+
+    $res = $connection->query($sql);
 
     if ($_POST["login"]) {
-        $res = $connection->query($sql);
         $res_arr = $res->fetch_array(MYSQLI_ASSOC);
 
         if ($res->num_rows == 0) {
@@ -38,14 +47,20 @@
         }
 
     } elseif ($_POST["signup"]) {
-        $res = $connection->query($sql);
-
         if ($res->num_rows != 0) {
             $_SESSION["errormsg"] = "This account already exists! Try logging in instead";
 
         } else {
             $hashed = password_hash($passInput, PASSWORD_DEFAULT);
-            $sql = "INSERT INTO User (username, password) VALUES ('$usernameInput', '$hashed');";
+            $sql = "INSERT INTO User (username, password) VALUES (?, ?);";
+
+            /*  USE PREPARED:
+                $query = $connection->prepare($sql);
+                $query->bind_param("ss", $usernameInput, $hashed);
+                // set values
+                $query->execute();
+                $query->close();
+            */
 
             if (!$connection->query($sql)) {
                 $_SESSION["errormsg"] = mysqli_error($connection);
