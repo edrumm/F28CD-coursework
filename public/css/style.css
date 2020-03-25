@@ -12,18 +12,18 @@ html, body {
 nav {
     width: 100vw;
     position: fixed;
-    background-color: #202020;
+    background-color: #161919;
 }
 
-nav ul {
-    width: 100%;
-    list-style-type: none;
-    display: flex;
-    flex-direction: row;
+nav img {
+    width: 7%;
+    margin-top: auto;
+    margin-bottom: auto;
+    vertical-align: middle;
+    padding: 1%;
 }
 
-nav ul li {
-    color: #FFFFFF;
-    font-weight: bold;
-    padding: 0 1%;
+.content {
+    width: 100vw;
+    height: 100vh;
 }

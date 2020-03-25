@@ -18,12 +18,9 @@
 </head>
 <body>
     <nav>
-        <ul>
-            <li>Home</li>
-            <li>Alt</li>
-        </ul>
+        <img src="img/logo_white.png" alt="S H A R E">
     </nav>
-    <div class="carousel">
+    <div class="content">
 
     </div>
     <footer>

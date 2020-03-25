@@ -2,6 +2,8 @@
     include_once "../server.php";
     include_once "../credentials.php";
 
+    // currently UN-TESTED
+
     if (isset($_SESSION["username"])) {
         header("Location: index.php");
         exit();
@@ -23,20 +25,13 @@
 
     $usernameInput = $_POST["username"];
     $passInput = $_POST["pass"];
-
     $sql = "SELECT * FROM User WHERE username = ? ;";
 
-    /*  USE PREPARED:
-        $query = $connection->prepare($sql);
-        $query->bind_param("ss", $usernameInput, $passInput);
-        // set values
-        $query->execute();
-        $query->close();
-		
-		Move to if() statement ???
-    */
+    $stmt = $connection->prepare($sql);
+    $stmt->bind_param("ss", $usernameInput, $passInput);
+    $stmt->execute();
 
-    $res = $connection->query($sql);
+    $res = $stmt->get_result();
 
     if ($_POST["login"]) {
         $res_arr = $res->fetch_array(MYSQLI_ASSOC);
@@ -48,6 +43,8 @@
             $_SESSION["errormsg"] = "The password is incorrect";
         }
 
+        $stmt->close();
+
     } elseif ($_POST["signup"]) {
         if ($res->num_rows != 0) {
             $_SESSION["errormsg"] = "This account already exists! Try logging in instead";
@@ -56,18 +53,18 @@
             $hashed = password_hash($passInput, PASSWORD_DEFAULT);
             $sql = "INSERT INTO User (username, password) VALUES (?, ?);";
 
-            /*  USE PREPARED:
-                $query = $connection->prepare($sql);
-                $query->bind_param("ss", $usernameInput, $hashed);
-                // set values
-                $query->execute();
-                $query->close();
-            */
+            $stmt = $connection->prepare($sql);
+            $stmt->bind_param("ss", $usernameInput, $hashed);
+            $stmt->execute();
 
-            if (!$connection->query($sql)) {
+            $res = $stmt->get_result();
+
+            if (!$stmt->prepare($sql)) {
                 $_SESSION["errormsg"] = mysqli_error($connection);
             }
         }
+
+        $stmt->close();
     }
 
     $connection->close();
