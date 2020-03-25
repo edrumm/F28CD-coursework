@@ -32,6 +32,8 @@
         // set values
         $query->execute();
         $query->close();
+		
+		Move to if() statement ???
     */
 
     $res = $connection->query($sql);
