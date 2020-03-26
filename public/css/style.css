@@ -1,5 +1,5 @@
 :root {
-    font-family: sans-serif;
+    font-family: Century Gothic, sans-serif;
     font-size: 1em;
 }
 
@@ -26,4 +26,23 @@ nav img {
 .content {
     width: 100vw;
     height: 100vh;
+    font-family: Century Gothic, sans-serif;
+    padding: 5%;
+}
+
+footer {
+    width: 100vw;
+    bottom: 0;
+    background-color: #161919;
+    padding: 1%;
+    color: #FFFFFF;
+    font-size: 0.8em;
+    text-align: center;
+}
+
+footer a {
+    color: inherit;
+    font-size: inherit;
+    font-weight: bold;
+    text-decoration: none;
 }
