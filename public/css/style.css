@@ -9,18 +9,37 @@ html, body {
     margin: 0;
 }
 
+a:hover {
+    color: #999999;
+    transition: color 2s;
+}
+
 nav {
     width: 100vw;
     position: fixed;
     background-color: #161919;
 }
 
+nav ul {
+    height: 100%;
+    list-style-type: none;
+    display: flex;
+    flex-direction: row;
+    padding-left: 0;
+}
+
+nav ul li {
+    height: 100%;
+    padding: 0.5% 1% 0.5% 0;
+    color: #FFFFFF;
+    font-weight: bold;
+}
+
 nav img {
     width: 7%;
-    margin-top: auto;
-    margin-bottom: auto;
+    float: left;
     vertical-align: middle;
-    padding: 1%;
+    padding: 1% 0 1% 1%;
 }
 
 .content {
@@ -45,4 +64,15 @@ footer a {
     font-size: inherit;
     font-weight: bold;
     text-decoration: none;
+}
+
+@media only screen and (max-width: 600px){
+    nav ul li {
+        /* temporary */
+        display: none;
+    }
+
+    nav img {
+        width: 40%;
+    }
 }
