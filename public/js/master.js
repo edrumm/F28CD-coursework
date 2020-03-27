@@ -21,7 +21,7 @@ function toggleDropdown(reset = false) {
 
     if (reset || icon.innerHTML === "x") {
         icon.innerHTML = "≡";
-        nav.style.flexDirection = "row";
+        nav[0].style.flexDirection = "row";
 
         for (let item of list) {
             item.style.display = "none";
@@ -29,7 +29,7 @@ function toggleDropdown(reset = false) {
 
     } else {
         icon.innerHTML = "x";
-        nav.style.flexDirection = "column";
+        nav[0].style.flexDirection = "column";
 
         for (let item of list) {
             item.style.display = "none";
