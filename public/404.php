@@ -1,3 +1,13 @@
+<?php
+    include_once "../server.php";
+
+    if (isset($_SESSION["username"])) {
+        // ...
+    } else {
+        // echo 'not logged in'
+    }
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>

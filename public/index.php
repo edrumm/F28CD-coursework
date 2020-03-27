@@ -1,5 +1,11 @@
 <?php
 	include_once "../server.php";
+
+    if (isset($_SESSION["username"])) {
+        // ...
+    } else {
+        // echo 'not logged in'
+    }
 ?>
 
 <html lang="en" xmlns="http://www.w3.org/1999/html">
