@@ -25,10 +25,10 @@
 <body onload="setup()" onresize="setDropdown()">
     <nav id="navigation">
         <img src="img/logo_white.png" alt="S H A R E">
-        <ul>
+        <ul id="nav-list">
+            <li id="drop-icon"><a href="javascript:toggleDropdown()">≡</a></li>
             <li>Login</li>
             <li>Register</li>
-            <li id="drop-icon" onclick="toggleDropdown()">≡</li>
         </ul>
 
     </nav>

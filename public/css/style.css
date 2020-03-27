@@ -31,11 +31,12 @@ nav ul {
     padding-left: 0;
 }
 
-nav ul li {
+nav ul li, #drop-icon a {
     height: 100%;
     padding: 0.5% 1% 0.5% 0;
     color: #FFFFFF;
     font-weight: bold;
+    text-decoration: none;
 }
 
 #drop-icon {
@@ -87,6 +88,7 @@ footer a {
     #drop-icon {
         display: block;
         height: 100%;
+        float: right;
         padding: 0.5% 1% 0.5% 0;
     }
 

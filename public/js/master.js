@@ -7,21 +7,20 @@ function setDropdown() {
     let navbar = document.getElementById("navigation");
 
     if (window.innerWidth < 600) {
-        // enable
+        // ...
     } else {
         toggleDropdown(true);
     }
 }
 
-// Needs testing / finishing
 function toggleDropdown(reset = false) {
     let icon = document.getElementById("drop-icon");
-    let nav = document.getElementById("navigation").getElementsByTagName("li");
-    let list = nav.getElementsByTagName("ul");
+    let nav = document.getElementById("nav-list");
+    let list = nav.getElementsByTagName("li");
 
     if (reset || icon.innerHTML === "x") {
-        icon.innerHTML = "≡";
-        nav[0].style.flexDirection = "row";
+        icon.innerHTML = "≡"; // issue here
+        nav.style.flexDirection = "row";
 
         for (let item of list) {
             item.style.display = "none";
@@ -29,10 +28,10 @@ function toggleDropdown(reset = false) {
 
     } else {
         icon.innerHTML = "x";
-        nav[0].style.flexDirection = "column";
+        nav.style.flexDirection = "column";
 
         for (let item of list) {
-            item.style.display = "none";
+            item.style.display = "block";
         }
     }
 }
