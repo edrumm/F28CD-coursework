@@ -22,13 +22,14 @@
     <script type="text/javascript" src="js/carousel.js"></script>
     <title>F28CD Skills Exchange</title>
 </head>
-<body onload="setup()" onresize="setDropdown()">
+<body onload="setup()" onresize="whenResized()">
     <nav id="navigation">
         <img src="img/logo_white.png" alt="S H A R E">
         <ul id="nav-list">
             <li id="drop-icon"><a href="javascript:toggleDropdown()">≡</a></li>
             <li>Login</li>
             <li>Register</li>
+            <li id="nav-search"><input type="text" name="searchbar" value="Search"></li>
         </ul>
 
     </nav>
