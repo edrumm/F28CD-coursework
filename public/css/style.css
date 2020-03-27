@@ -38,6 +38,10 @@ nav ul li {
     font-weight: bold;
 }
 
+#drop-icon {
+    display: none;
+}
+
 nav img {
     width: 7%;
     float: left;
@@ -70,12 +74,27 @@ footer a {
 }
 
 @media only screen and (max-width: 600px){
+    nav ul {
+        padding: 2%;
+        margin: 0;
+    }
+
     nav ul li {
         /* temporary */
         display: none;
     }
 
+    #drop-icon {
+        display: block;
+        height: 100%;
+        padding: 0.5% 1% 0.5% 0;
+    }
+
     nav img {
-        width: 40%;
+        width: 35%;
+    }
+
+    .content {
+        padding: 10% 7% 7%;
     }
 }

@@ -3,13 +3,37 @@ function setup() {
     // ...
 }
 
-function toggleDropdown() {
+function setDropdown() {
     let navbar = document.getElementById("navigation");
 
     if (window.innerWidth < 600) {
         // enable
     } else {
-        // disable
+        toggleDropdown(true);
+    }
+}
+
+// Needs testing / finishing
+function toggleDropdown(reset = false) {
+    let icon = document.getElementById("drop-icon");
+    let nav = document.getElementById("navigation").getElementsByTagName("li");
+    let list = nav.getElementsByTagName("ul");
+
+    if (reset || icon.innerHTML === "x") {
+        icon.innerHTML = "≡";
+        nav.style.flexDirection = "row";
+
+        for (let item of list) {
+            item.style.display = "none";
+        }
+
+    } else {
+        icon.innerHTML = "x";
+        nav.style.flexDirection = "column";
+
+        for (let item of list) {
+            item.style.display = "none";
+        }
     }
 }
 
