@@ -1,6 +1,16 @@
-function setup() {
+window.onload = function() {
     printYear();
     // ...
+}
+
+function searchbarValue(focused) {
+    let field = document.getElementsByName("searchbar")[0];
+
+    if (focused && field.value === "") {
+        field.value = "";
+    } else if (field.value === "") {
+        field.value = "Search";
+    }
 }
 
 function whenResized() {

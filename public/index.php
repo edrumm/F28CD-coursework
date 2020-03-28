@@ -1,11 +1,5 @@
 <?php
 	include_once "../server.php";
-
-    if (isset($_SESSION["username"])) {
-        // ...
-    } else {
-        // echo 'not logged in'
-    }
 ?>
 
 <html lang="en" xmlns="http://www.w3.org/1999/html">
@@ -22,18 +16,27 @@
     <script type="text/javascript" src="js/carousel.js"></script>
     <title>F28CD Skills Exchange</title>
 </head>
-<body onload="setup()" onresize="whenResized()">
+<body onresize="whenResized()">
     <nav id="navigation">
         <img src="img/logo_white.png" alt="S H A R E">
         <ul id="nav-list">
             <li id="drop-icon"><a href="javascript:toggleDropdown()">≡</a></li>
             <li>Login</li>
             <li>Register</li>
-            <li id="nav-search"><input type="text" name="searchbar" value="Search"></li>
+            <li id="nav-search">
+                <input type="text" name="searchbar" value="Search" autocomplete="off"
+                       onfocus="searchbarValue(true)" onfocusout="searchbarValue(false)">
+            </li>
         </ul>
-
     </nav>
     <div class="content">
+        <?php
+            if (isset($_SESSION["username"])) {
+                echo "<p>Welcome, " . $_SESSION["username"] . "</p>";
+            } else {
+                echo "<p>Not logged in</p>";
+            }
+        ?>
         <p>Page content</p>
     </div>
     <footer>

@@ -1,11 +1,5 @@
 <?php
     include_once "../server.php";
-
-    if (isset($_SESSION["username"])) {
-        // ...
-    } else {
-        // echo 'not logged in'
-    }
 ?>
 
 <!DOCTYPE html>
@@ -24,6 +18,13 @@
         <a href="index.php"><img src="img/logo_white.png" alt="S H A R E"></a>
     </nav>
     <div class="content">
+        <?php
+            if (isset($_SESSION["username"])) {
+                echo "<p>Welcome, " . $_SESSION["username"] . "</p>";
+            } else {
+                echo "<p>Not logged in</p>";
+            }
+        ?>
         <p>This page is not available</p>
     </div>
     <footer>
