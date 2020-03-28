@@ -1,16 +1,11 @@
 <?php
+    // credentials.php file hidden from GitHub for security purposes
     include_once "../server.php";
     include_once "../credentials.php";
 
     // currently UN-TESTED
 
-    if (isset($_SESSION["username"])) {
-        header("Location: index.php");
-        exit();
-    }
-
-    if (!validate($_POST["username"])) {
-        $_SESSION["errormsg"] = "Username is > 20 characters or contains forbidden text";
+    if (isset($_SESSION["username"]) || !validate($_POST["username"])) {
         header("Location: index.php");
         exit();
     }
@@ -23,23 +18,23 @@
         die("Connection failed: " . mysqli_connect_error());
     }
 
-    $usernameInput = $_POST["username"];
-    $passInput = $_POST["pass"];
+    $un = $_POST["username"];
+    $pw = $_POST["pass"];
     $sql = "SELECT * FROM User WHERE username = ? ;";
 
     $stmt = $connection->prepare($sql);
-    $stmt->bind_param("ss", $usernameInput, $passInput);
+    $stmt->bind_param("ss", $un, $pw);
     $stmt->execute();
 
     $res = $stmt->get_result();
 
     if ($_POST["login"]) {
-        $res_arr = $res->fetch_array(MYSQLI_ASSOC);
+        $fetched_arr = $res->fetch_array(MYSQLI_ASSOC);
 
         if ($res->num_rows == 0) {
             $_SESSION["errormsg"] = "The username you entered doesn't match any known account";
 
-        } elseif (!password_verify($passInput, $res_arr["password"])) {
+        } elseif (!password_verify($pw, $fetched_arr["password"])) {
             $_SESSION["errormsg"] = "The password is incorrect";
         }
 
@@ -50,17 +45,18 @@
             $_SESSION["errormsg"] = "This account already exists! Try logging in instead";
 
         } else {
-            $hashed = password_hash($passInput, PASSWORD_DEFAULT);
+            $hashed_pw = password_hash($pw, PASSWORD_DEFAULT);
             $sql = "INSERT INTO User (username, password) VALUES (?, ?);";
 
             $stmt = $connection->prepare($sql);
-            $stmt->bind_param("ss", $usernameInput, $hashed);
+            $stmt->bind_param("ss", $un, $hashed_pw);
             $stmt->execute();
 
             $res = $stmt->get_result();
 
             if (!$stmt->prepare($sql)) {
                 $_SESSION["errormsg"] = mysqli_error($connection);
+                // die() ?
             }
         }
 
@@ -69,13 +65,10 @@
 
     $connection->close();
 
-    if (isset($_SESSION["errormsg"])) {
-        header("Location: index.php");
-        exit();
+    if (!isset($_SESSION["errormsg"]))  {
+        $_SESSION["username"] = $fetched_arr["username"];
+        $res->free_result();
     }
-
-    $_SESSION["username"] = $res_arr["username"];
-    $res->free_result();
 
     header("Location: index.php");
 ?>

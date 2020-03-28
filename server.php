@@ -12,6 +12,7 @@
 
 		foreach ($illegal_text as $character) {
 		    if (strpos($input, $character) !== false) {
+                $_SESSION["errormsg"] = "Username is > 20 characters or contains forbidden text";
 		        return false;
             }
         }
