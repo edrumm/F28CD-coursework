@@ -1,7 +1,7 @@
 window.onload = function() {
     printYear();
     // ...
-}
+};
 
 function searchbarValue(focused) {
     let field = document.getElementsByName("searchbar")[0];
