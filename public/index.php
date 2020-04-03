@@ -24,8 +24,11 @@
             <li>Login</li>
             <li>Register</li>
             <li id="nav-search">
-                <input type="text" name="searchbar" value="Search" autocomplete="off"
-                       onfocus="searchbarValue(true)" onfocusout="searchbarValue(false)">
+                <form method="post" action="search.php" name="search-form">
+                    <input type="text" name="searchbar" value="Search" autocomplete="off"
+                           onfocus="searchbarValue(true)" onfocusout="searchbarValue(false)">
+                    <button type="submit" name="search-btn"> > </button>
+                </form>
             </li>
         </ul>
     </nav>
