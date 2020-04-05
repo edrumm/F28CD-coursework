@@ -27,7 +27,6 @@
                 <form method="post" action="search.php" name="search-form">
                     <input type="text" name="searchbar" value="Search" autocomplete="off"
                            onfocus="searchbarValue(true)" onfocusout="searchbarValue(false)">
-                    <button type="submit" name="search-btn"> > </button>
                 </form>
             </li>
         </ul>
@@ -40,7 +39,18 @@
                 echo "<p>Not logged in</p>";
             }
         ?>
-        <p>Page content</p>
+        <div class="sidebar">
+            <ul>
+                <li>Java</li>
+                <li>HTML</li>
+                <li>JavaScript</li>
+                <li>PHP</li>
+                <li>Python</li>
+            </ul>
+        </div>
+        <div class="main-content">
+
+        </div>
     </div>
     <footer>
         <p>&copy; <span id="yr"></span> Ewan Drummond, Luke Douglas, Jack Tong</p>

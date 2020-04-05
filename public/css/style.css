@@ -74,6 +74,36 @@ nav img {
     padding: 5%;
 }
 
+.sidebar {
+    color: #FFFFFF;
+    background-color: #708090;
+    width: 10%;
+    height: 70vh;
+    padding: 2%;
+    float: left;
+}
+
+.sidebar ul {
+    display: flex;
+    flex-direction: column;
+    height: 96%;
+    list-style-type: none;
+    padding: 1%;
+}
+
+.sidebar ul li {
+    height: 19.2%;
+    text-align: center;
+    PADDING: 1%;
+}
+
+.main-content {
+    width: 70%;
+    height: 70vh;
+    padding: 2%;
+    float: left;
+}
+
 footer {
     width: 100vw;
     bottom: 0;

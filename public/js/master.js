@@ -6,7 +6,7 @@ window.onload = function() {
 function searchbarValue(focused) {
     let field = document.getElementsByName("searchbar")[0];
 
-    if (focused && field.value === "") {
+    if (focused && field.value === "Search") {
         field.value = "";
     } else if (field.value === "") {
         field.value = "Search";
