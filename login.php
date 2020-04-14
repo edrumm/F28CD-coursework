@@ -1,8 +1,27 @@
 <?php
     // credentials.php file hidden from GitHub for security purposes
-    include_once "server.php";
+    include_once "session.php";
     include_once "credentials.php";
 
+    // VALIDATION:
+    function validate($input) {
+        if (strlen($input) > 20) {
+            return false;
+        }
+
+        $illegal_text = array(';', ':', '*', '&', '#', '(', ')', '=', '"', '--');
+
+        foreach ($illegal_text as $character) {
+            if (strpos($input, $character) !== false) {
+                $_SESSION["errormsg"] = "Username is > 20 characters or contains forbidden text";
+                return false;
+            }
+        }
+        return true;
+    }
+
+
+    // MAIN CODE:
     // currently UN-TESTED
 
     if (isset($_SESSION["username"]) || !validate($_POST["username"])) {

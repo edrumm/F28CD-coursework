@@ -1,5 +1,5 @@
 <?php
-    include_once "../server.php";
+    include_once "../session.php";
 ?>
 
 <!DOCTYPE html>
