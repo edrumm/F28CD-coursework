@@ -13,7 +13,11 @@
     <link rel="stylesheet" type="text/css" href="css/style.css">
     <!--JS-->
     <script type="text/javascript" src="js/master.js"></script>
-    <script type="text/javascript" src="js/carousel.js"></script>
+    <!--
+        TODO: merge html & style to this file from index-new.php
+        TODO: test this
+        <script type="text/javascript" src="js/carousel.js"></script>
+    -->
     <title>F28CD Skills Exchange</title>
 </head>
 <body onresize="whenResized()">
@@ -27,6 +31,12 @@
                 <form method="post" action="search.php" name="search-form">
                     <input type="text" name="searchbar" value="Search" autocomplete="off"
                            onfocus="searchbarValue(true)" onfocusout="searchbarValue(false)">
+                    <?php
+                        // add class / id & style
+                        if (isset($_SESSION["form_error"])) {
+                            echo "<p>" . $_SESSION["form_error"] . "</p>";
+                        }
+                    ?>
                 </form>
             </li>
         </ul>

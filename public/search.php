@@ -1,21 +1,18 @@
 <?php
     include_once "../server.php";
 
-    $search = $_POST["searchbar"];
+    unset($_SESSION["form_error"]);
 
-    if ($search == "Search" || $search == '') {
-        echo "<p>Error!</p>";
-
-        // TODO
-
-        /*
+    if ($_POST["searchbar"] == "") {
+        $_SESSION["form_error"] = "Please enter a search value";
         header("Location: index.php");
         exit();
-        */
 
     } else {
-        echo "<p>OK!</p>";
-
-        // TODO
+        echo "<h3>Showing results for: " . $_POST["searchbar"] . "</h3>";
+        echo "<p>Not implemented yet!</p>";
     }
+
+    // ...
+
 ?>
