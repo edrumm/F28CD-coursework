@@ -13,11 +13,11 @@
     <link rel="stylesheet" type="text/css" href="css/style.css">
     <!--JS-->
     <script type="text/javascript" src="js/master.js"></script>
-    <!--
-        TODO: merge html & style to this file from index-new.php
-        TODO: test this
-        <script type="text/javascript" src="js/carousel.js"></script>
-    -->
+    <script type="text/javascript" src="js/carousel.js"></script>
+    <script defer src="https://use.fontawesome.com/releases/v5.8.1/js/all.js"
+            integrity="sha384-g5uSoOSBd7KkhAMlnQILrecXvzst9TdC09/VM+pjDTCM+1il8RHz5fKANTFFb+gQ"
+            crossorigin="anonymous">
+    </script>
     <title>F28CD Skills Exchange</title>
 </head>
 <body onresize="whenResized()">
@@ -44,22 +44,65 @@
     <div class="content">
         <?php
             if (isset($_SESSION["username"])) {
-                echo "<p>Welcome, " . $_SESSION["username"] . "</p>";
+                echo "<p class='login'>Welcome, " . $_SESSION["username"] . "</p>";
             } else {
-                echo "<p>Not logged in</p>";
+                echo "<p class='login'>Not logged in &nbsp; <i class=\"fas fa-user-times\"></i> &nbsp; <i class=\"fas fa-ellipsis-h\"></i></p>";
             }
         ?>
         <div class="sidebar">
             <ul>
-                <li>Java</li>
-                <li>HTML</li>
-                <li>JavaScript</li>
-                <li>PHP</li>
-                <li>Python</li>
+                <li><i class="fab fa-java"></i></li>
+                <li><i class="fab fa-html5"></i></li>
+                <li><i class="fab fa-js"></i></li>
+                <li><i class="fab fa-php"></i></li>
+                <li><i class="fab fa-python"></i></li>
             </ul>
         </div>
         <div class="main-content">
+            <h1 style="text-align:center">Trending</h1>
+            <div class="slideshow-container">
 
+                <div class="mySlides fade">
+                    <!--<div class="numbertext">1 / 3</div>-->
+                    <iframe src="https://www.youtube.com/embed/hEgO047GxaQ" allowfullscreen></iframe>
+                </div>
+
+                <div class="mySlides fade">
+                    <!--<div class="numbertext">2 / 3</div>-->
+                    <iframe src="https://www.youtube.com/embed/2dZiMBwX_5Q" allowfullscreen></iframe>
+                </div>
+
+                <div class="mySlides fade">
+                    <!--<div class="numbertext">3 / 3</div>-->
+                    <iframe src="https://www.youtube.com/embed/qVU3V0A05k8" allowfullscreen></iframe>
+                </div>
+
+                <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+                <a class="next" onclick="plusSlides(1)">&#10095;</a>
+
+            </div>
+            <br>
+
+            <div style="text-align:center">
+                <span class="dot" onclick="currentSlide(1)"></span>
+                <span class="dot" onclick="currentSlide(2)"></span>
+                <span class="dot" onclick="currentSlide(3)"></span>
+            </div>
+
+            <br>
+            <p class="stats-bar"><br>#1 <i class="fas fa-chart-bar"></i> &emsp; 1,442 <i class="far fa-eye"></i> &emsp;
+                180 <i class="far fa-thumbs-up"></i> &emsp; 29 <i class="far fa-thumbs-down"></i></p>
+
+            <div class="mobile-languages">
+                <br>
+                <ul>
+                    <li><i class="fab fa-java"></i></li>
+                    <li><i class="fab fa-html5"></i></li>
+                    <li><i class="fab fa-js"></i></li>
+                    <li><i class="fab fa-php"></i></li>
+                    <li><i class="fab fa-python"></i></li>
+                </ul>
+            </div>
         </div>
     </div>
     <footer>

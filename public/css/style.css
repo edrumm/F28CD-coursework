@@ -39,6 +39,10 @@ nav ul li{
     font-weight: bold;
 }
 
+#user {
+    font-size: 8em;
+}
+
 #drop-icon {
     display: none;
 }
@@ -67,23 +71,40 @@ nav img {
     padding: 1% 0 1% 1%;
 }
 
+.login {
+    font-size: 0.9em;
+    font-weight: bold;
+}
+
 .content {
     width: 100vw;
-    height: 100vh;
+    height: 90vh;
     font-family: Century Gothic, sans-serif;
     padding: 5%;
 }
 
-.sidebar {
-    color: #FFFFFF;
-    background-color: #708090;
-    width: 10%;
-    height: 70vh;
-    padding: 2%;
+.mobile-languages { display: none; }
+
+hr {
+    width: 90%;
     float: left;
 }
 
-.sidebar ul {
+.sidebar, .sidebar-user {
+    color: #FFFFFF;
+    background-color: #708090;
+    width: 10%;
+    height: 60vh;
+    padding: 2%;
+    float: left;
+    display: block;
+}
+
+.sidebar-user {
+    width: 15%;
+}
+
+.sidebar ul, .sidebar-user ul {
     display: flex;
     flex-direction: column;
     height: 96%;
@@ -93,20 +114,165 @@ nav img {
 
 .sidebar ul li {
     height: 19.2%;
+    font-size: 3em;
     text-align: center;
-    PADDING: 1%;
+    padding: 1%;
+    transition: transform 0.5s;
+    -moz-transition: transform 0.5s;
+    -o-transition: transform 0.5s;
+    -webkit-transition: transform 0.5s;
+}
+
+.sidebar-user ul li {
+    font-size: 1.5em;
+    text-align: center;
+    padding: 1% 1% 4%;
+}
+
+.sidebar ul li:hover {
+    cursor: pointer;
+    transform: scale(1.25);
+    -moz-transform: scale(1.25);
+    -o-transform: scale(1.25);
+    -webkit-transform: scale(1.25);
+    -ms-transform: scale(1.25);
+}
+
+#username {
+    font-size: 1em;
+    font-style: italic;
+}
+
+#user-options {
+    font-size: 1em;
+    font-weight: bold;
+    transition: transform 0.5s;
+    -moz-transition: transform 0.5s;
+    -o-transition: transform 0.5s;
+    -webkit-transition: transform 0.5s;
+}
+
+#user-options:hover {
+    cursor: pointer;
+    transform: scale(1.25);
+    -moz-transform: scale(1.25);
+    -o-transform: scale(1.25);
+    -webkit-transform: scale(1.25);
+    -ms-transform: scale(1.25)
 }
 
 .main-content {
     width: 70%;
-    height: 70vh;
+    height: 60vh;
     padding: 2%;
     float: left;
-    background-color: aliceblue;
+}
+
+iframe {
+    width: 560px;
+    height: 315px;
+}
+
+.mySlides {
+    display: none;
+}
+
+.slideshow-container {
+    max-width: 558px;
+    position: relative;
+    margin: auto;
+}
+
+/* Next & previous buttons */
+.prev, .next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    width: auto;
+    padding: 16px;
+    margin-top: -22px;
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+    transition: 0.6s ease;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+}
+
+/* Position the "next button" to the right */
+.next {
+    right: 0;
+    border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover, .next:hover {
+    background-color: rgba(0,0,0,0.8);
+}
+
+/* Caption text */
+.text {
+    color: #f2f2f2;
+    font-size: 15px;
+    padding: 8px 12px;
+    position: absolute;
+    bottom: 8px;
+    width: 100%;
+    text-align: center;
+}
+
+/* Number text (1/3 etc) */
+.numbertext {
+    color: #f2f2f2;
+    font-size: 12px;
+    padding: 8px 12px;
+    position: absolute;
+    top: 0;
+}
+
+/* The dots/bullets/indicators */
+.dot {
+    cursor: pointer;
+    height: 15px;
+    width: 15px;
+    margin: 0 2px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.6s ease;
+}
+
+.active, .dot:hover {
+    background-color: #717171;
+}
+
+/* Fading animation */
+.fade {
+    -webkit-animation-name: fade;
+    -webkit-animation-duration: 1.5s;
+    animation-name: fade;
+    animation-duration: 1.5s;
+}
+
+.stats-bar {
+    color: slategrey;
+    text-align: center;
+    padding: 1%;
+}
+
+@-webkit-keyframes fade {
+    from {opacity: .4}
+    to {opacity: 1}
+}
+
+@keyframes fade {
+    from {opacity: .4}
+    to {opacity: 1}
 }
 
 footer {
     width: 100vw;
+    height: 10vh;
     bottom: 0;
     background-color: #161919;
     padding: 1%;
@@ -151,5 +317,45 @@ footer a {
 
     .content {
         padding: 10% 7% 7%;
+    }
+
+    .sidebar {
+        display: none;
+    }
+
+    .sidebar-user {
+        width: 90%;
+    }
+
+    .mobile-languages {
+        display: block;
+        width: 100%;
+    }
+
+    .mobile-languages ul {
+        padding: 1%;
+        display: flex;
+        flex-direction: row;
+        list-style-type: none;
+    }
+
+    .mobile-languages ul li {
+        text-align: center;
+        width: 20%;
+        padding: 1%;
+        font-size: 2em;
+    }
+
+    .main-content {
+        width: auto;
+    }
+
+    iframe {
+        width: 284px;
+        height: 160px;
+    }
+
+    .prev, .next,.text {
+        font-size: 0.8em;
     }
 }
