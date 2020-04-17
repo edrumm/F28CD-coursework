@@ -32,7 +32,7 @@
     unset($_SESSION["error"]);
     $connection = new mysqli($host, $username, $password, $db);
 
-    if (mysqli_connect_error()) {
+    if ($connection->connect_error) {
         header("Location: public/index.php");
         die("Connection failed: " . mysqli_connect_error());
     }
