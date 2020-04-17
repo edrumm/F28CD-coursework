@@ -70,13 +70,12 @@
 
                 // -------------------------------------------------------------------------------------
                 // TODO: Setup database
-                // TODO: Multiple queries for each item: resource, user, lanagauge, etc...
 
                 $connection = new mysqli($host, $username, $password, $db);
 
                 if ($connection->connect_error) {
                     header("Location: public/index.php");
-                    die("Connection failed: " . mysqli_connect_error());
+                    die("Connection failed: " . $connection->connect_error);
                 }
 
                 $sql = "SELECT * FROM Resource WHERE Tag = ?;";
@@ -86,6 +85,7 @@
 
                 $res =$stmt->get_result();
                 $items = $res->fetch_array(MYSQLI_ASSOC);
+                $stmt->close();
 
                 if ($res->num_rows == 0) {
                     echo "<h3>0 results found</h3>";
@@ -93,10 +93,15 @@
                     // foreach in result, display
                     foreach ($items as $item) {
                         // print each as div
+
+                        echo '<div class=\"search-item\">';
+
+                        // ...
+
+                        echo '</div>';
                     }
                 }
 
-                $stmt->close();
                 $connection->close();
                 $res->free_result();
             ?>

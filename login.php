@@ -34,7 +34,7 @@
 
     if ($connection->connect_error) {
         header("Location: public/index.php");
-        die("Connection failed: " . mysqli_connect_error());
+        die("Connection failed: " . $connection->connect_error);
     }
 
     $un = $_POST["username"];
