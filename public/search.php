@@ -1,6 +1,6 @@
 <?php
     include_once "../session.php";
-    include_once "credentials.php";
+    include_once "../credentials.php";
     unset($_SESSION["form_error"]);
 ?>
 
@@ -74,7 +74,7 @@
                 $connection = new mysqli($host, $username, $password, $db);
 
                 if ($connection->connect_error) {
-                    header("Location: public/index.php");
+                    header("Location: index.php");
                     die("Connection failed: " . $connection->connect_error);
                 }
 

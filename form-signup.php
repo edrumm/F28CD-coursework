@@ -21,4 +21,6 @@
             // die() ?
         }
     }*/
+
+    echo $_POST["languages"];
 ?>

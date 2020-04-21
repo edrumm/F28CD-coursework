@@ -1,5 +1,5 @@
 <?php
-
+    include_once "../session.php";
 ?>
 <html lang="en" xmlns="http://www.w3.org/1999/html">
 <head>
@@ -12,7 +12,6 @@
     <link rel="stylesheet" type="text/css" href="css/style.css">
     <!--JS-->
     <script type="text/javascript" src="js/master.js"></script>
-    <script type="text/javascript" src="js/carousel.js"></script>
     <script defer src="https://use.fontawesome.com/releases/v5.8.1/js/all.js"
             integrity="sha384-g5uSoOSBd7KkhAMlnQILrecXvzst9TdC09/VM+pjDTCM+1il8RHz5fKANTFFb+gQ"
             crossorigin="anonymous">
@@ -36,7 +35,53 @@
             }
         ?>
         <form action="../form-signup.php" method="post" name="signup">
-            <!--TODO: Form-->
+            <table class="signup">
+                <tr>
+                    <td><label>First Name: </label></td>
+                    <td><input type="text" name="firstname"></td>
+                    <td><label>Last Name: </label></td>
+                    <td><input type="text" name="surname"></td>
+                </tr>
+                <tr>
+                    <td><label>E-mail: </label></td>
+                    <td><input type="text" name="email"></td>
+                    <td><label>Username: </label></td>
+                    <td><input type="text" name="username"></td>
+                </tr>
+                <tr>
+                    <td><label>Password: </label></td>
+                    <td><input type="text" name="password"></td>
+                    <td><label>Re-enter Password: </label></td>
+                    <td><input type="text" name="re-password"></td>
+                </tr>
+                <tr>
+                    <td><label>Select your language: </label></td>
+                    <td>
+                        <select name="languages">
+                            <option value="none">-</option>
+                            <option value="c-cpp">C / C++</option>
+                            <option value="csharp">C#</option>
+                            <option value="go">Go</option>
+                            <option value="haskell">Haskell</option>
+                            <option value="java">Java</option>
+                            <option value="js">JavaScript</option>
+                            <option value="kotlin">Kotlin</option>
+                            <option value="obj-c">Objective-C</option>
+                            <option value="php">PHP</option>
+                            <option value="python">Python</option>
+                            <option value="sql">SQL</option>
+                            <option value="swift">Swift</option>
+                            <option value="ts">TypeScript</option>
+                            <option value="other">Other (Please specify)</option>
+                        </select>
+                    </td>
+                    <td><label>Education: </label></td>
+                    <td><input type="text" name="education"></td>
+                </tr>
+                <tr>
+                    <td><input type="submit" value="Register" name=""></td>
+                </tr>
+            </table>
         </form>
     </div>
     <footer>
