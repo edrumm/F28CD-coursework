@@ -34,7 +34,12 @@
                 exit();
             }
         ?>
-        <form action="../form-signup.php" method="post" name="signup">
+        <form action="../form-signup.php" method="post" name="signup"> <!--TODO: Add (more) style-->
+            <?php
+                if (isset($_SESSION["errormsg"])) {
+                    echo $_SESSION["errormsg"];
+                }
+            ?>
             <table class="signup">
                 <tr>
                     <td><label>First Name: </label></td>
@@ -59,20 +64,20 @@
                     <td>
                         <select name="languages">
                             <option value="none">-</option>
-                            <option value="c-cpp">C / C++</option>
-                            <option value="csharp">C#</option>
-                            <option value="go">Go</option>
-                            <option value="haskell">Haskell</option>
-                            <option value="java">Java</option>
-                            <option value="js">JavaScript</option>
-                            <option value="kotlin">Kotlin</option>
-                            <option value="obj-c">Objective-C</option>
-                            <option value="php">PHP</option>
-                            <option value="python">Python</option>
-                            <option value="sql">SQL</option>
-                            <option value="swift">Swift</option>
-                            <option value="ts">TypeScript</option>
-                            <option value="other">Other (Please specify)</option>
+                            <option value="C / C++">C / C++</option>
+                            <option value="C#">C#</option>
+                            <option value="Go">Go</option>
+                            <option value="Haskell">Haskell</option>
+                            <option value="Java">Java</option>
+                            <option value="JavaScript">JavaScript</option>
+                            <option value="Kotlin">Kotlin</option>
+                            <option value="Objective-C">Objective-C</option>
+                            <option value="PHP">PHP</option>
+                            <option value="Python">Python</option>
+                            <option value="sSQL">SQL</option>
+                            <option value="Swift">Swift</option>
+                            <option value="TypeScript">TypeScript</option>
+                            <option value="Other">Other (Please specify)</option>
                         </select>
                     </td>
                     <td><label>Education: </label></td>
