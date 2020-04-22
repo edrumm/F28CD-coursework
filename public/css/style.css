@@ -39,6 +39,12 @@ nav ul li{
     font-weight: bold;
 }
 
+nav ul li a {
+    color: #FFFFFF;
+    font-weight: bold;
+    text-decoration: none;
+}
+
 #user {
     font-size: 8em;
 }
@@ -69,6 +75,12 @@ nav img {
     float: left;
     vertical-align: middle;
     padding: 1% 0 1% 1%;
+}
+
+.err-txt {
+    font-weight: bold;
+    font-size: 0.9em;
+    color: #FF0000;
 }
 
 .login {
@@ -311,6 +323,7 @@ iframe {
 }
 
 .signup {
+    display: table;
     width: 50%;
     padding: 1%;
 }
@@ -407,5 +420,19 @@ footer a {
 
     .prev, .next,.text {
         font-size: 0.8em;
+    }
+
+    .signup {
+        width: 90%;
+        padding: 1%;
+    }
+
+    .signup tr td {
+        display: list-item;
+        list-style-type: none;
+    }
+
+    .signup tr td input, .signup tr td select {
+        width: 95%;
     }
 }

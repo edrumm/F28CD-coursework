@@ -26,7 +26,7 @@
         <ul id="nav-list">
             <li id="drop-icon"><a href="javascript:toggleDropdown()">≡</a></li>
             <li>Login</li>
-            <li>Register</li>
+            <li><a href="signup.php">Register</a></li>
             <li id="nav-search">
                 <form method="post" action="search.php" name="search-form">
                     <input type="text" name="searchbar" value="Search" autocomplete="off"

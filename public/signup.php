@@ -1,5 +1,6 @@
 <?php
     include_once "../config.php";
+    // include_once "../form-signup.php";
 ?>
 <html lang="en" xmlns="http://www.w3.org/1999/html">
 <head>
@@ -34,10 +35,10 @@
                 exit();
             }
         ?>
-        <form action="../src/form-signup.php" method="post" name="signup"> <!--TODO: Add (more) style-->
+        <form action="../form-signup.php" method="post" name="signup"> <!--TODO: Add (more) style-->
             <?php
                 if (isset($_SESSION["form_error"])) {
-                    echo $_SESSION["form_error"];
+                    echo '<p class="err-txt">' . $_SESSION["form_error"] . '</p>';
                     unset($_SESSION["form_error"]);
                 }
             ?>
