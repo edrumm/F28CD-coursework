@@ -1,5 +1,5 @@
 <?php
-    define('ROOT_DIR', __DIR__);
+    define('ROOT_DIR', __DIR__); // may not be needed
 
 	if (session_status() == PHP_SESSION_NONE) {
 		session_start();

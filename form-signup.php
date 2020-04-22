@@ -2,30 +2,53 @@
     include_once "config.php";
     include_once "credentials.php";
 
-    $required = array("firstname", "surname", "email", "username", "password", "re-password");
+    // VALIDATION FUNCTIONS:
+
+    function username_valid($un) {
+        return (strlen($un) < 20 && $un != "");
+    }
+
+    function password_valid($pw) {
+        return (preg_match('/[A-Za-z].*[0-9]|[0-9].*[A-Za-z]/', $pw) && strlen($pw) > 7 && strlen($pw) < 17);
+    }
+
+    function check_required() {
+        $required = array("firstname", "surname", "email", "username", "password", "re-password");
+
+        foreach ($required as $field) {
+            trim($_POST[$field]);
+
+            if (empty($_POST[$field])) {
+                return false;
+            }
+        }
+        return true;
+    }
 
     // BEGIN CHECKS:
 
-    foreach ($required as $field) {
-        if ($_POST[$field] == "") {
-            $_SESSION["form_error"] = "1 or more required fields missing";
-            header("Location: public/signup.php");
-            exit();
-        }
-    }
+    if (!check_required()) {
+        $_SESSION["form_error"] = "1 or more required fields missing";
 
-    if ($_POST["password"] != $_POST["re-password"]) {
+    } elseif ($_POST["password"] != $_POST["re-password"]) {
         $_SESSION["form_error"] = "The passwords entered do not match";
-        header("Location: public/signup.php");
-        exit();
 
     } elseif ($_POST["languages"] == "none") {
         $_SESSION["form_error"] = "Please choose a language";
+
+    } elseif (!username_valid($_POST["username"])) {
+        $_SESSION["form_error"] = "Username must be between 5 and 20 characters";
+
+    } elseif (!password_valid($_POST["password"])) {
+        $_SESSION["form_error"] = "Password should be 8 - 16 characters and contain at least 1 number";
+    }
+
+    if (isset($_SESSION["form_error"])) {
         header("Location: public/signup.php");
         exit();
     }
 
-    // CONNECT - CHECKS OK:
+    // CONNECT - checks OK:
 
     $connection = new mysqli($host, $username, $password, $db);
 
@@ -48,27 +71,7 @@
         $_POST["education"]);
     $stmt->execute();
 
-    /*if ($res->num_rows != 0) {
-        $_SESSION["errormsg"] = "This account already exists! Try logging in instead";
-        // header location login page . php etc...
-
-    } else {
-        $hashed_pw = password_hash($pw, PASSWORD_DEFAULT);
-        $sql = "INSERT INTO User (username, password) VALUES (?, ?);";
-
-        $stmt = $connection->prepare($sql);
-        $stmt->bind_param("ss", $un, $hashed_pw);
-        $stmt->execute();
-
-        $res = $stmt->get_result();
-
-        if (!$stmt->prepare($sql)) {
-            $_SESSION["errormsg"] = mysqli_error($connection);
-            // die() ?
-        }
-    }*/
-
-    echo $_POST["languages"];
+    // ...
 
     $stmt->close();
     $connection->close();
