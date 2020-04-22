@@ -36,8 +36,9 @@
         ?>
         <form action="../src/form-signup.php" method="post" name="signup"> <!--TODO: Add (more) style-->
             <?php
-                if (isset($_SESSION["errormsg"])) {
-                    echo $_SESSION["errormsg"];
+                if (isset($_SESSION["form_error"])) {
+                    echo $_SESSION["form_error"];
+                    unset($_SESSION["form_error"]);
                 }
             ?>
             <table class="signup">

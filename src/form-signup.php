@@ -2,26 +2,25 @@
     include_once "../config.php";
     include_once "../credentials.php";
 
-    unset($_SESSION["errormsg"]);
     $required = array("firstname", "surname", "email", "username", "password", "re-password");
 
     // BEGIN CHECKS:
 
     foreach ($required as $field) {
         if ($_POST[$field] == "") {
-            $_SESSION["errormsg"] = "1 or more required fields missing";
+            $_SESSION["form_error"] = "1 or more required fields missing";
             header("Location: public_html/signup.php");
             exit();
         }
     }
 
     if ($_POST["password"] != $_POST["re-password"]) {
-        $_SESSION["errormsg"] = "The passwords entered do not match";
+        $_SESSION["form_error"] = "The passwords entered do not match";
         header("Location: public_html/signup.php");
         exit();
 
     } elseif ($_POST["languages"] == "none") {
-        $_SESSION["errormsg"] = "Please choose a language";
+        $_SESSION["form_error"] = "Please choose a language";
         header("Location: public_html/signup.php");
         exit();
     }
@@ -39,12 +38,13 @@
     $stmt = $connection->prepare($sql);
 
     $hash = password_hash($_POST["password"], PASSWORD_DEFAULT);
-    $stmt->bind_param($_POST["firstname"],
+    $stmt->bind_param(
+        $_POST["firstname"],
         $_POST["surname"],
         $_POST["email"],
         $_POST["username"],
         $hash,
-        $_POST["language"],
+        $_POST["languages"],
         $_POST["education"]);
     $stmt->execute();
 

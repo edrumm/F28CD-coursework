@@ -37,6 +37,7 @@
                     // add class / id & style
                     if (isset($_SESSION["form_error"])) {
                         echo "<p>" . $_SESSION["form_error"] . "</p>";
+                        unset($_SESSION["form_error"]);
                     }
                     ?>
                 </form>
@@ -66,10 +67,7 @@
                     echo "<p>UNDER CONSTRUCTION</p>";
                 }
 
-                if (true) { exit(); }  // TEMPORARY to stop invalid DB connection while DB is not set up
-
-                // -------------------------------------------------------------------------------------
-                // TODO: Setup database
+                /* TODO: Setup database
 
                 $connection = new mysqli($host, $username, $password, $db);
 
@@ -104,6 +102,7 @@
 
                 $connection->close();
                 $res->free_result();
+                */
             ?>
 
             <div class="search-item">

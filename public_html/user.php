@@ -34,6 +34,7 @@
                     // add class / id & style
                     if (isset($_SESSION["form_error"])) {
                         echo "<p>" . $_SESSION["form_error"] . "</p>";
+                        unset($_SESSION["form_error"]);
                     }
                     ?>
                 </form>

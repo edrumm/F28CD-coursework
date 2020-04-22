@@ -32,9 +32,10 @@
                     <input type="text" name="searchbar" value="Search" autocomplete="off"
                            onfocus="searchbarValue(true)" onfocusout="searchbarValue(false)">
                     <?php
-                        // add class / id & style
+                        // add class / ID & style
                         if (isset($_SESSION["form_error"])) {
                             echo "<p>" . $_SESSION["form_error"] . "</p>";
+                            unset($_SESSION["form_error"]);
                         }
                     ?>
                 </form>
