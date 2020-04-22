@@ -1,6 +1,8 @@
 <?php
     include_once "config.php";
     include_once "credentials.php";
+    unset($_SESSION["form_error"]);
+
 
     // VALIDATION FUNCTIONS:
 
@@ -16,14 +18,16 @@
         $required = array("firstname", "surname", "email", "username", "password", "re-password");
 
         foreach ($required as $field) {
-            trim($_POST[$field]);
 
             if (empty($_POST[$field])) {
                 return false;
             }
+
+            trim($_POST[$field]);
         }
         return true;
     }
+
 
     // BEGIN CHECKS:
 
@@ -47,6 +51,7 @@
         header("Location: public/signup.php");
         exit();
     }
+
 
     // CONNECT - checks OK:
 
