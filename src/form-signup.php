@@ -34,7 +34,7 @@
         die("Connection failed: " . $connection->connect_error);
     }
 
-    $sql = "INSERT INTO User (firstname, surname, email, username, pass, lang, education) VALUES (?, ?, ?, ?, ?, ?, ?);";
+    $sql = "INSERT INTO User (firstname, surname, email, username, password, languages, education) VALUES (?, ?, ?, ?, ?, ?, ?);";
     $stmt = $connection->prepare($sql);
 
     $hash = password_hash($_POST["password"], PASSWORD_DEFAULT);
