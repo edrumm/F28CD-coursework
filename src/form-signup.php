@@ -1,6 +1,6 @@
 <?php
-    include_once "session.php";
-    include_once "credentials.php";
+    include_once "../config.php";
+    include_once "../credentials.php";
 
     unset($_SESSION["errormsg"]);
     $required = array("firstname", "surname", "email", "username", "password", "re-password");
@@ -10,18 +10,19 @@
     foreach ($required as $field) {
         if ($_POST[$field] == "") {
             $_SESSION["errormsg"] = "1 or more required fields missing";
-            header("Location: public/signup.php");
+            header("Location: public_html/signup.php");
             exit();
         }
     }
 
     if ($_POST["password"] != $_POST["re-password"]) {
         $_SESSION["errormsg"] = "The passwords entered do not match";
-        header("Location: public/signup.php");
+        header("Location: public_html/signup.php");
         exit();
-    } elseif ($_POST["language"] == "none") { // not working, maybe '===' ?
+
+    } elseif ($_POST["languages"] == "none") {
         $_SESSION["errormsg"] = "Please choose a language";
-        header("Location: public/signup.php");
+        header("Location: public_html/signup.php");
         exit();
     }
 
@@ -30,7 +31,7 @@
     $connection = new mysqli($host, $username, $password, $db);
 
     if ($connection->connect_error) {
-        header("Location: public/signup.php");
+        header("Location: public_html/signup.php");
         die("Connection failed: " . $connection->connect_error);
     }
 

@@ -1,5 +1,5 @@
 <?php
-    include_once "../session.php";
+    include_once "../config.php";
     include_once "../credentials.php";
     unset($_SESSION["form_error"]);
 ?>

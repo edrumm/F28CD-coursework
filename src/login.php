@@ -1,13 +1,13 @@
 <?php
     // credentials.php file hidden from GitHub for security purposes
-    include_once "session.php";
-    include_once "credentials.php";
+    include_once "../config.php";
+    include_once "../credentials.php";
 
     // MAIN CODE:
     // currently UN-TESTED
 
-    if (isset($_SESSION["username"]) || !validate($_POST["username"])) {
-        header("Location: public/index.php");
+    if (isset($_SESSION["username"])) {
+        header("Location: public_html/index.php");
         exit();
     }
 
@@ -15,7 +15,7 @@
     $connection = new mysqli($host, $username, $password, $db);
 
     if ($connection->connect_error) {
-        header("Location: public/index.php");
+        header("Location: public_html/index.php");
         die("Connection failed: " . $connection->connect_error);
     }
 
@@ -45,5 +45,5 @@
         $res->free_result();
     }
 
-    header("Location: public/index.php");
+    header("Location: public_html/index.php");
 ?>

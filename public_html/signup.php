@@ -1,5 +1,5 @@
 <?php
-    include_once "../session.php";
+    include_once "../config.php";
 ?>
 <html lang="en" xmlns="http://www.w3.org/1999/html">
 <head>
@@ -34,7 +34,7 @@
                 exit();
             }
         ?>
-        <form action="../form-signup.php" method="post" name="signup"> <!--TODO: Add (more) style-->
+        <form action="../src/form-signup.php" method="post" name="signup"> <!--TODO: Add (more) style-->
             <?php
                 if (isset($_SESSION["errormsg"])) {
                     echo $_SESSION["errormsg"];

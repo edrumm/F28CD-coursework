@@ -1,5 +1,5 @@
 <?php
-	include_once "../session.php";
+	include_once "../config.php";
 ?>
 
 <html lang="en" xmlns="http://www.w3.org/1999/html">
