@@ -175,7 +175,7 @@ hr {
     -moz-transform: scale(1.25);
     -o-transform: scale(1.25);
     -webkit-transform: scale(1.25);
-    -ms-transform: scale(1.25)
+    -ms-transform: scale(1.25);
 }
 
 .main-content {
@@ -324,13 +324,38 @@ iframe {
 
 .signup {
     display: table;
-    width: 50%;
+    width: 60%;
     padding: 1%;
 }
 
 .signup tr td {
-    padding-right: 2%;
-    padding-bottom: 2%;
+    padding-right: 10%;
+    padding-bottom: 5%;
+}
+
+.signup tr td input, .signup tr td select {
+    width: 100%;
+}
+
+.submit-button {
+    padding: 2%;
+    width: 50%;
+    color: #FFFFFF;
+    font-weight: bold;
+    background-color: #6495ED;
+    border: none;
+    transition: transform 0.5s;
+    -moz-transition: transform 0.5s;
+    -o-transition: transform 0.5s;
+    -webkit-transition: transform 0.5s;
+}
+
+.submit-button:hover {
+    transform: scale(1.25);
+    -moz-transform: scale(1.25);
+    -o-transform: scale(1.25);
+    -webkit-transform: scale(1.25);
+    -ms-transform: scale(1.25);
 }
 
 footer {
@@ -430,9 +455,15 @@ footer a {
     .signup tr td {
         display: list-item;
         list-style-type: none;
+        padding-right: 0;
+        padding-bottom: 4%;
     }
 
     .signup tr td input, .signup tr td select {
         width: 95%;
+    }
+
+    .submit-button {
+        margin-top: 10%;
     }
 }

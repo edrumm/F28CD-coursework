@@ -6,12 +6,14 @@
 
     // VALIDATION FUNCTIONS:
 
-    function username_valid($un) {
-        return (strlen($un) < 20 && $un != "");
+    function username_valid() {
+        return (strlen($_POST["username"]) < 20 && $_POST["username"] != "");
     }
 
-    function password_valid($pw) {
-        return (preg_match('/[A-Za-z].*[0-9]|[0-9].*[A-Za-z]/', $pw) && strlen($pw) > 7 && strlen($pw) < 17);
+    function password_valid() {
+        return (preg_match('/[A-Za-z].*[0-9]|[0-9].*[A-Za-z]/', $_POST["password"])
+            && strlen($_POST["password"]) > 7
+            && strlen($_POST["password"]) < 17);
     }
 
     function check_required() {
@@ -40,10 +42,10 @@
     } elseif ($_POST["languages"] == "none") {
         $_SESSION["form_error"] = "Please choose a language";
 
-    } elseif (!username_valid($_POST["username"])) {
+    } elseif (!username_valid()) {
         $_SESSION["form_error"] = "Username must be between 5 and 20 characters";
 
-    } elseif (!password_valid($_POST["password"])) {
+    } elseif (!password_valid()) {
         $_SESSION["form_error"] = "Password should be 8 - 16 characters and contain at least 1 number";
     }
 

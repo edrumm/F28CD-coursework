@@ -1,6 +1,5 @@
 <?php
     include_once "../config.php";
-    // include_once "../form-signup.php";
 ?>
 <html lang="en" xmlns="http://www.w3.org/1999/html">
 <head>
@@ -35,6 +34,7 @@
                 exit();
             }
         ?>
+        <br>
         <form action="../form-signup.php" method="post" name="signup"> <!--TODO: Add (more) style-->
             <?php
                 if (isset($_SESSION["form_error"])) {
@@ -86,7 +86,7 @@
                     <td><input type="text" name="education"></td>
                 </tr>
                 <tr>
-                    <td><input type="submit" value="Register" name=""></td>
+                    <td><input class="submit-button" type="submit" value="Register" name=""></td>
                 </tr>
             </table>
         </form>
